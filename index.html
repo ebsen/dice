@@ -18,14 +18,14 @@
         font-weight: bold;
         margin-top: 1rem;
       }
-      .button-extra-large {
+      .extra-large {
         font-size: 125%;
       }
     </style>
   </head>
   <body>
     <h1>Pocket Dice</h1>
-    <button id="button" class="pure-button pure-button-primary button-extra-large" type="button" name="button">Roll the die</button>
+    <button id="button" class="pure-button pure-button-primary extra-large" type="button" name="button">Roll the die</button>
     <div id="result"></div>
 
     <script type="text/javascript">
@@ -33,9 +33,17 @@
         var result = document.getElementById('result');
         result.textContent = Math.floor(Math.random() * 6) + 1;
       }
+      function activateButton() {
+        this.classList.add('pure-button-active');
+      }
+      function deactivateButton() {
+        this.classList.remove('pure-button-active');
+      }
 
       var button = document.getElementById('button');
       button.addEventListener('click', roll);
+      button.addEventListener('mousedown', activateButton);
+      button.addEventListener('mouseup', deactivateButton);
     </script>
   </body>
 </html>
