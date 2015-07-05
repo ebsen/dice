@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Roll the Die</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <style media="screen">
       body {
-        font-family: sans-serif;
+        /*font-family: sans-serif;*/
         text-align: center;
       }
       button {
@@ -17,11 +18,14 @@
         font-weight: bold;
         margin-top: 1rem;
       }
+      .button-extra-large {
+        font-size: 125%;
+      }
     </style>
   </head>
   <body>
     <h1>Pocket Dice</h1>
-    <button id="button" type="button" name="button">Roll the die</button>
+    <button id="button" class="pure-button pure-button-primary button-extra-large" type="button" name="button">Roll the die</button>
     <div id="result"></div>
 
     <script type="text/javascript">
