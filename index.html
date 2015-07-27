@@ -3,21 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Roll the Die</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <title>Short some dice?</title>
+    <meta property="og:title" content="Short some Dice?">
+    <meta property="og:url" content="http://dice.ebsen.me">
+    <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"> -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/buttons-min.css">
+    <!-- <link rel="stylesheet" href="animate.css" media="screen"> -->
     <style media="screen">
       body {
-        /*font-family: sans-serif;*/
         text-align: center;
       }
-      button {
-      
-      }
+      /*button {
+        margin-top: 1rem;
+      }*/
       #result {
-        font-size: 4rem;
+        font-size: 6rem;
         font-weight: bold;
-        /*margin-top: 1rem;*/
-        height: 8rem;
+        height: 6rem;
+        margin-bottom: 1rem;
       }
       .extra-large {
         font-size: 125%;
@@ -25,14 +28,36 @@
     </style>
   </head>
   <body>
-    <h1>Pocket Dice</h1>
-    <div id="result"></div>
+    <h1>Short some dice?</h1>
+    <p>Click or tap the button below.</p>
+    <div id="result" class="animated"></div>
     <button id="button" class="pure-button pure-button-primary extra-large" type="button" name="button">Roll the die</button>
 
     <script type="text/javascript">
+
+      var button = document.getElementById('button');
+
+      button.addEventListener('click', roll);
+      button.addEventListener('mousedown', activateButton);
+      button.addEventListener('mouseup', deactivateButton);
+
+      // events.split(' ').forEach(function (type) {
+      //   button.addEventListener(type, roll);
+      // });
+
+      // function clearTheTable() {
+      //   result.classList.add('slideOutRight');
+      // }
+
       function roll() {
+        // var events = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         var result = document.getElementById('result');
-        result.textContent = Math.floor(Math.random() * 6) + 1;
+
+        // clearTheTable();
+        // result.classList.add('slideOutRight');
+        // TODO: When that animation is _done_, set the new value and animate it in...
+
+        result.textContent = Number(Math.floor(Math.random() * 6) + 1).toString();
       }
       function activateButton() {
         this.classList.add('pure-button-active');
@@ -40,11 +65,6 @@
       function deactivateButton() {
         this.classList.remove('pure-button-active');
       }
-
-      var button = document.getElementById('button');
-      button.addEventListener('click', roll);
-      button.addEventListener('mousedown', activateButton);
-      button.addEventListener('mouseup', deactivateButton);
     </script>
   </body>
 </html>
