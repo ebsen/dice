@@ -30,7 +30,11 @@
   // moreDie.addEventListener('click', incrementDie);
   // lessDie.addEventListener('click', decrementDie);
   moreFaces.addEventListener('click', incrementFaces);
+  moreFaces.addEventListener('mousedown', activateButton);
+  moreFaces.addEventListener('mouseup', deactivateButton);
   lessFaces.addEventListener('click', decrementFaces);
+  lessFaces.addEventListener('mousedown', activateButton);
+  lessFaces.addEventListener('mouseup', deactivateButton);
 
   function roll() {
     var result = document.getElementById('result');
