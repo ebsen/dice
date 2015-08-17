@@ -2,8 +2,8 @@
   'use strict';
 
   var rollButton = document.getElementById('rollBtn');
-  var moreFaces = document.getElementById('moreFaces');
-  var lessFaces = document.getElementById('lessFaces');
+  var moreSides = document.getElementById('moreSides');
+  var lessSides = document.getElementById('lessSides');
   // var moreDie = document.getElementById('moreDie');
   // var lessDie = document.getElementById('lessDie');
 
@@ -15,10 +15,10 @@
         document.getElementById('die').textContent = this.number;
       }
     },
-    faces: {
+    sides: {
       number: 6,
       update: function () {
-        document.getElementById('faces').textContent = this.number;
+        document.getElementById('sides').textContent = this.number;
       }
     }
   };
@@ -29,17 +29,17 @@
 
   // moreDie.addEventListener('click', incrementDie);
   // lessDie.addEventListener('click', decrementDie);
-  moreFaces.addEventListener('click', incrementFaces);
-  moreFaces.addEventListener('mousedown', activateButton);
-  moreFaces.addEventListener('mouseup', deactivateButton);
-  lessFaces.addEventListener('click', decrementFaces);
-  lessFaces.addEventListener('mousedown', activateButton);
-  lessFaces.addEventListener('mouseup', deactivateButton);
+  moreSides.addEventListener('click', incrementSides);
+  moreSides.addEventListener('mousedown', activateButton);
+  moreSides.addEventListener('mouseup', deactivateButton);
+  lessSides.addEventListener('click', decrementSides);
+  lessSides.addEventListener('mousedown', activateButton);
+  lessSides.addEventListener('mouseup', deactivateButton);
 
   function roll() {
     var result = document.getElementById('result');
     // TODO: When that animation is _done_, set the new value and animate it in...
-    result.textContent = Number(Math.floor(Math.random() * app.faces.number) + 1).toString();
+    result.textContent = Number(Math.floor(Math.random() * app.sides.number) + 1).toString();
   }
   function activateButton() {
     this.classList.add('pure-button-active');
@@ -60,16 +60,16 @@
       app.die.update();
     }
   };
-  function incrementFaces() {
-    if (app.faces.number >= 6) {
-      app.faces.number++;
-      app.faces.update();
+  function incrementSides() {
+    if (app.sides.number >= 4) {
+      app.sides.number++;
+      app.sides.update();
     }
   };
-  function decrementFaces() {
-    if (app.faces.number > 6) {
-      app.faces.number--;
-      app.faces.update();
+  function decrementSides() {
+    if (app.sides.number > 4) {
+      app.sides.number--;
+      app.sides.update();
     }
   };
 }());

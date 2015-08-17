@@ -5,6 +5,6 @@
   - ~~grey border~~
   - options:
     - number of die
-    - ~~number of faces~~
+    - ~~number of sides~~
 - (from app.js)
   - when intro animation on new ``#result` is _done_, set the new value and animate it in.
